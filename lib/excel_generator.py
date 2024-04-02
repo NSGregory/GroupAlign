@@ -12,7 +12,9 @@ class excelGenerator:
         pass
 
     def save(self, filename):
-        """Assumes group is a pandas dataframe"""
+        """Assumes self.group is a dict containing one ore more pandas dataframes.
+        Uses pandas.ExcelWriter to save an excel file.
+        If multiple keys are present in the dict, each will be assigned to a new tab in the output file. """
         writer = pd.ExcelWriter(filename+".xlsx")
         for tab in self.group.df_assignment_merge.keys():
             self.group.df_assignment_merge[tab].to_excel(writer,tab)
@@ -36,6 +38,6 @@ if __name__ == '__main__':
     groups = assignGroups(data)
     out_filename = Name.outputFile(file)
     excelWkst = excelGenerator(groups)
-    #excelWkst.save(out_filename)
+    excelWkst.save(out_filename)
     #base = importr("base")
     #anticlust = importr("anticlust")
