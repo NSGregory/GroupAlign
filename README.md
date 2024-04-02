@@ -11,4 +11,5 @@ Will graph user assigned features of the samples so that the assigment can be vi
 display_data.py essentially performs all the intended functions of this project
 
 You will need to set the file path to your R package in the groups.py script.  For example:
-os.environ['R_HOME'] = '/Library/Frameworks/R.framework/Resources'
+
+```os.environ['R_HOME'] = '/Library/Frameworks/R.framework/Resources'```
